@@ -6,32 +6,43 @@ function getInput(inputFieldId) {
     }
 
     else {
-        inputValue = parseFloat(inputValueText);
+        inputValue = parseFloat(inputValueText.value);
+        if (inputValue >= 0) {
+
+            return inputValue;
+
+        }
+        else {
+            alert('You must enter a posittive number');
+        }
     }
-    if (inputValue >= 0) {
 
-        return inputValue;
+}
 
+// balance and expense calculation
+
+function balenceAmountCalculator(income, foodExpense, rentExpense, clothExpense) {
+    const totalExpense = foodExpense + rentExpense + clothExpense;
+    const totalBalenceAmount = income - totalExpense;
+
+    if (totalBalenceAmount < 0) {
+        alert("You have insuficient income Bro!")
     }
     else {
-        alert('You must enter a posittive number')
-    }
-}
-
-// balance calculation
-
-function balenceAmountCalculator(income,food,rent,cloths){
-    const balence = income - expence ;
-
-    if(balence < 0){
-        alert("vai apni khoroc bashi kore felcen, tai income baran")
-    }
-    else{
-        document.getElementById('expence').innerText = expence;
-        document.getElementById('balance').innerText = balence;
+        document.getElementById('expenseAmount').innerText = totalExpense;
+        document.getElementById('balanceAmount').innerText = totalBalenceAmount;
 
     }
 }
+
+// handle save button event
+document.getElementById('savingsButton').addEventListener('click', function(){
+    
+    const incomeAmount = getInput('inputIncome');
+    const saveParsentence = getInput('inputSavePercent');
+    
+    
+})
 
 // handle calculate button event
 
