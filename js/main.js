@@ -2,7 +2,8 @@
 function getInput(inputFieldId) {
     const inputValueText = document.getElementById(inputFieldId);
     if (isNaN(inputValueText.value)) {
-        alert('You must enter a number');
+        console.log(inputFieldId);
+        alert('You must enter a number in your');
     }
 
     else {
@@ -13,7 +14,7 @@ function getInput(inputFieldId) {
 
         }
         else {
-            alert('You must enter a posittive number');
+            alert('You must enter a posittive number your ' + inputFieldId + 'field');
         }
     }
 
@@ -35,15 +36,6 @@ function balenceAmountCalculator(income, foodExpense, rentExpense, clothExpense)
     }
 }
 
-// handle save button event
-document.getElementById('savingsButton').addEventListener('click', function(){
-    
-    const incomeAmount = getInput('inputIncome');
-    const saveParsentence = getInput('inputSavePercent');
-    
-    
-})
-
 // handle calculate button event
 
 document.getElementById('calculateButton').addEventListener('click', function () {
@@ -53,4 +45,24 @@ document.getElementById('calculateButton').addEventListener('click', function ()
     const clothEpenseAmount = getInput("inputCloths");
 
     balenceAmountCalculator(incomeAmount, foodExpenseAmount, rentExpenseAmount, clothEpenseAmount)
+})
+
+// handle save button event
+document.getElementById('savingsButton').addEventListener('click', function () {
+
+    const incomeAmount = getInput('inputIncome');
+    const saveParsentence = getInput('inputSavePercent');
+
+    const totalSaveAmount = incomeAmount * (saveParsentence / 100);
+
+    totalBalenceAmount = parseFloat(document.getElementById('balanceAmount').innerText)
+
+    if (totalSaveAmount < totalSaveAmount) {
+        alert('Your balance amount is insufficient Dude!')
+    }
+
+    else {
+        document.getElementById('saveAmount').innerText = totalSaveAmount;
+        document.getElementById('remainingBalanceAmount').innerText = totalBalenceAmount - totalSaveAmount;
+    }
 })
