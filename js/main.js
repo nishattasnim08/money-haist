@@ -3,7 +3,7 @@ function getInput(inputFieldId) {
     const inputValueText = document.getElementById(inputFieldId);
     if (isNaN(inputValueText.value)) {
         console.log(inputFieldId);
-        alert('You must enter a number in your');
+        alert('You must enter a number in');
     }
 
     else {
@@ -14,7 +14,7 @@ function getInput(inputFieldId) {
 
         }
         else {
-            alert('You must enter a posittive number your ' + inputFieldId + 'field');
+            alert('You must enter a posittive number');
         }
     }
 
